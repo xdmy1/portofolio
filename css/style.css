@@ -31,6 +31,7 @@
 
 
 body {
+  
     box-sizing: content-box;
     background-color:#0c0c0c;
     height: 100vh;
@@ -140,9 +141,11 @@ body {
 .skill {
     display: flex;
     gap: 5px;
-    background-color: rgba(0, 0, 0, 0.205);
+    background-color: #171718;
     padding: 5px 8px;
     border-radius: 10px;
+    align-items: center;
+    justify-content: center;
 }
 
 .hire-me {
@@ -176,153 +179,74 @@ body {
 /*carusel*/
 
 
-.carousel {
-
-    margin: 0 auto;
-    padding: 20px 0;
-    max-width: 550px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    border-radius: 20px;
-    background-color: rgba(0, 0, 0, 0.226);
-  }
-
-  .card {
+@keyframes scroll {
+	0% { transform: translateX(0); }
+	100% { transform: translateX(calc(-350px * 7)); }
+}
+.second-box-col1, .second-box-col2 {
     color: white;
-    border-radius: 24px;
-    box-shadow: rgba(0, 0, 0, 10%) 5px 5px 20px 0;
-    padding: 7px 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 150px; /* Lățimea fiecărui card pentru aliniere */
-
-
-    color: white;
-    border-radius: 24px;
-    box-shadow: rgba(0, 0, 0, 10%) 5px 5px 20px 0;
-    padding: 7px 15px;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    flex-wrap: nowrap;
-    width: fit-content;
-
-    &:nth-child(1) {
-      background: #973b8e;
-    }
-
-    &:nth-child(2) {
-      background: #75296e;
-    }
-
-    &:nth-child(3) {
-      background: #5a1a54;
-    }
-  }
-  .card  p {
-    text-wrap: nowrap;
-  }
-  .carousel {
-    /* ... */
-    &:hover .group  {
-      animation-play-state: paused;
-    }
-  } 
-  .group {
-    display: flex;
-    gap: 20px;
-    /* Add padding to the right to create a gap between the last and first card. */
-    padding-right: 20px;
-    will-change: transform; /* We should be nice to the browser - let it know what we're going to animate. */
-    animation: scrolling 5s linear infinite;
-
-  
-  }
-
-
-  @keyframes scrolling {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-25%);
-    }
-  }
-  .carousel {
-    /* ... */
-    &:hover .group2  {
-      animation-play-state: paused;
-    }
-  } 
-  .group2 {
-    transform: translateX(-50%);
-    display: flex;
-    gap: 20px;
-    /* Add padding to the right to create a gap between the last and first card. */
-    padding-right: 20px;
-    will-change: transform; /* We should be nice to the browser - let it know what we're going to animate. */
-    animation: scrolling2 6s linear infinite;
-  }
-
-
-  @keyframes scrolling2 {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(+25%);
-    }
-  }
-
-.second-box-col1, .second-box-col2, .second-box-col3 {
-    flex-direction: column;
-    gap: 1rem;
     background-color: #0e0e10;
     padding: 1rem;
-    gap: 1rem;
-    color: white;
     border-radius: 20px;
-    border: 1px solid#1f1f1f;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
+    gap: 1rem;
+    border: 1px solid #1f1f1f;
+}
+.slider {
+  padding-top: 3rem;
+  display: flex;
+
+	background: #0e0e10;
+
+	height: 100px;
+	margin: auto;
+	overflow: hidden;
+	position: relative;
+  width: 400px;
+  color: white;
+  height: fit-content;
 }
 
-.servicii-pp {
-    margin-bottom: 1rem;
-    color: rgb(187, 187, 187);
+.slider::before,
+.slider::after {
+	background: linear-gradient(to right, #0e0e10 0%, rgba(255, 255, 255, 0) 40%);
+	content: "";
+	height: 100%;
+	position: absolute;
+	width: 200px;
+	z-index: 2;
 }
 
-.carousel {
-    /* ... */
-    &:hover .group3  {
-      animation-play-state: paused;
-    }
-  } 
-  .group3 {
-    transform: translateX(-50%);
-    display: flex;
-    gap: 20px;
-    /* Add padding to the right to create a gap between the last and first card. */
-    padding-right: 20px;
-    will-change: transform; /* We should be nice to the browser - let it know what we're going to animate. */
-    animation: scrolling2 10s linear infinite;
-  }
+.slider::after {
+	right: 0;
+	top: 0;
+	transform: rotateZ(180deg);
+}
 
+.slider::before {
+	left: 0;
+	top: 0;
+}
 
-  @keyframes scrolling3 {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(+25%);
-    }
-  }
+.slider .slide-track {
+	animation: scroll 20s linear infinite;
+	display: flex;
+	width: calc(250px * 14);
+}
 
-.carusel-img {
-    width: 100px;
+.slider .slide {
+	height: 100px;
+	width: 250px;
+}
+.slide p {
+  color: #973b8e;
+  font-size: 1.7rem;
+}
+
+.slide img {
+  width: auto;
+  border-radius: 5px;
+  height: 100%;
 }
 
 .group3 .card {
@@ -360,6 +284,9 @@ body {
     border: 1px solid#1f1f1f;
     align-items: center;
     justify-content: center;
+}
+.third-box-col1 {
+  padding-bottom: 3rem;
 }
 
 
@@ -400,10 +327,12 @@ padding: 1rem;
 display: flex;
 flex-direction: column;
 align-items: center;
+justify-content: center;
 border: #1f1f1f solid 1px;
 border-radius: 15px;
 background-color: #0e0e10;
 height: fit-content;
+height: 100%;
 }
 .number {
   display: flex;
@@ -452,7 +381,7 @@ height: fit-content;
   font-size: 1.5rem;
 }
 .buton-team {
-  background-color: rgb(39, 39, 39);
+  background-color: #171718;
   border: none;
   align-items: center;
   padding: 5px;
@@ -494,6 +423,7 @@ height: fit-content;
   }
   body {
     font-size: smaller;
+    margin-bottom: 2rem;
   }
   .abilities {
     display: grid;
@@ -510,4 +440,8 @@ height: fit-content;
     gap: 1rem;
     justify-content: center;
   }
+  .slider {
+    width: 300px;
+  }
+
 }
