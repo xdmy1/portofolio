@@ -174,7 +174,9 @@ body {
     text-align: center;
     gap: 8px;
 }
-
+.servicii-pp {
+  color: gray;
+}
 
 /*carusel*/
 
@@ -183,7 +185,7 @@ body {
 	0% { transform: translateX(0); }
 	100% { transform: translateX(calc(-350px * 7)); }
 }
-.second-box-col1, .second-box-col2 {
+.second-box-col1, .second-box-col2, .second-box-col3 {
     color: white;
     background-color: #0e0e10;
     padding: 1rem;
@@ -237,6 +239,72 @@ body {
 .slider .slide {
 	height: 100px;
 	width: 250px;
+}
+.slide p {
+  color: #973b8e;
+  font-size: 1.7rem;
+}
+
+.slide img {
+  width: auto;
+  border-radius: 5px;
+  height: 100%;
+}
+/*slider2*/
+
+@keyframes scroll2 {
+  0% { transform: translateX(calc(-250px * 6)); } /* Start off-screen to the left */
+  100% { transform: translateX(0); } /* Move to the right */
+ 
+}
+
+.slider2 {
+  padding-top: 3rem;
+  display: flex;
+  background: #0e0e10;
+  margin: auto;
+  overflow: hidden;
+  position: relative;
+  width: 400px;
+  color: white;
+  height: fit-content;
+
+}
+
+.slider2::before,
+.slider2::after {
+  background: linear-gradient(to right, #0e0e10 0%, rgba(255, 255, 255, 0) 40%);
+  content: "";
+  height: 100%;
+  position: absolute;
+  width: 200px;
+  z-index: 2;
+}
+
+.slider2::after {
+  right: 0;
+  top: 0;
+  transform: rotateZ(180deg);
+}
+
+.slider2::before {
+  left: 0;
+  top: 0;
+}
+
+.slider2 .slide-track2 {
+  display: flex;
+  width: calc(250px * 6); /* Adjusted for looping content */
+  animation: scroll2 10s linear infinite; /* Adjust duration as needed */
+  gap: 3rem;
+}
+
+.slider2 .slide {
+  height: 100px;
+  width: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .slide p {
   color: #973b8e;
@@ -341,6 +409,9 @@ height: 100%;
 }
 .number p {
   font-size: 4rem;
+  background: -webkit-linear-gradient(#eee, #000000);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 .plus-img {
   width: 50px;
@@ -413,6 +484,14 @@ height: 100%;
   scale: 1.01;
   cursor: pointer;
 }
+.pasii .ability:hover > .right {
+  animation: ease;
+  transform: translateX(100%);
+  opacity: .5;
+}
+.pasii .skill-imd {
+  width: 40px;
+}
 
 @media screen and (max-width: 700px) {
   .cols-main {
@@ -445,3 +524,4 @@ height: 100%;
   }
 
 }
+
