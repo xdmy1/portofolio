@@ -194,6 +194,12 @@ body {
     gap: 1rem;
     border: 1px solid #1f1f1f;
 }
+.second-box-col3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-block: 2rem;
+}
 .slider {
   padding-top: 3rem;
   display: flex;
